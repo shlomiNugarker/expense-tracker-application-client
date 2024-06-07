@@ -1,6 +1,7 @@
 export interface Expense {
   _id?: string
   category: string
-  date: string
+  date: number
+  amount: number
   notes: string[]
 }

@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
 import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
+import { ExpensesPage } from './pages/ExpensesPage'
+import { ChartPage } from './pages/ChartPage'
 
 function App() {
   return (
@@ -21,7 +23,10 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />}>
+            <Route path="expenses" element={<ExpensesPage />} />
+            <Route path="chart" element={<ChartPage />} />
+          </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
         </Routes>
