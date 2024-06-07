@@ -1,8 +1,9 @@
-import { useOutletContext } from 'react-router-dom'
-import { Expense } from '../interfaces/Expense'
+import ExpenseForm from '../cmps/ExpenseForm'
 
 export const ChartPage = () => {
-  const expenses = useOutletContext<Expense[]>()
-  console.log({ expenses })
-  return <div>ChartPage</div>
+  return (
+    <div>
+      <ExpenseForm expense={undefined} />
+    </div>
+  )
 }

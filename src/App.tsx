@@ -20,8 +20,15 @@ function App() {
             <li>
               <Link to="/signup">signup</Link>
             </li>
+            <li>
+              <Link to="expenses">expenses</Link>
+            </li>
+            <li>
+              <Link to="chart">chart</Link>
+            </li>
           </ul>
         </nav>
+
         <Routes>
           <Route path="/" element={<HomePage />}>
             <Route path="expenses" element={<ExpensesPage />} />

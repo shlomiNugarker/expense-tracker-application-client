@@ -3,7 +3,7 @@ import axios from 'axios'
 export const proxyService = { get, post, put, remove }
 
 const BASE_URL =
-  process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
+  process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3030'
 
 async function get(endpoint: string) {
   try {
