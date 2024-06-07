@@ -1,9 +1,13 @@
 import { useOutletContext } from 'react-router-dom'
-import { Expense } from '../interfaces/Expense'
+import { ExpenseList } from '../cmps/ExpenseList'
+import { ContextProps } from './HomePage'
 
 export const ExpensesPage = () => {
-  const expenses = useOutletContext<Expense[]>()
-  console.log({ expenses })
+  const { expenses } = useOutletContext<ContextProps>()
 
-  return <div>ExpensePage</div>
+  return (
+    <div>
+      <ExpenseList expenses={expenses} />
+    </div>
+  )
 }
