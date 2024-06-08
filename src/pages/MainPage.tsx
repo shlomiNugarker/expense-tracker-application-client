@@ -3,21 +3,20 @@ import { Expense } from '../interfaces/Expense'
 import { Outlet } from 'react-router-dom'
 import { expenseService } from '../services/expense.servise'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const categoriesOpts = [
-  'Food',
-  'Social Life',
-  'Pets',
-  'Transport',
-  'Culture',
-  'Household',
-  'Apparel',
-  'Beauty',
-  'Health',
-  'Education',
-  'Gift',
-  'Other',
-]
+// const categoriesOpts = [
+//   'Food',
+//   'Social Life',
+//   'Pets',
+//   'Transport',
+//   'Culture',
+//   'Household',
+//   'Apparel',
+//   'Beauty',
+//   'Health',
+//   'Education',
+//   'Gift',
+//   'Other',
+// ]
 
 export interface ContextProps {
   expenses: Expense[]
@@ -26,7 +25,7 @@ export interface ContextProps {
   onUpdatetExpense: (expense: Expense) => void
 }
 
-export const HomePage = () => {
+export const MainPage = () => {
   const [expenses, setExpenses] = useState<Expense[]>([])
 
   const onDeleteExpense = async (_id: string) => {
@@ -61,20 +60,6 @@ export const HomePage = () => {
   return (
     <div>
       <h1>Expense Tracker</h1>
-
-      {/* <button
-        onClick={() => { 
-          onAddExpense({
-            title: 'title',
-            category: 'category',
-            date: new Date().getTime(),
-            amount: 50,
-            notes: ['find a job'],
-          })
-        }}
-      >
-        onAddExpense
-      </button> */}
 
       <Outlet
         context={{

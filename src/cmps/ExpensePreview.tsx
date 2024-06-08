@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom'
 import { Expense } from '../interfaces/Expense'
-import { ContextProps } from '../pages/HomePage'
+import { ContextProps } from '../pages/MainPage'
 
 interface Props {
   expense: Expense

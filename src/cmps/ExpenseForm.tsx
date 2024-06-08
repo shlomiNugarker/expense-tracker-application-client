@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Expense } from '../interfaces/Expense'
 import { useOutletContext } from 'react-router-dom'
-import { ContextProps } from '../pages/HomePage'
+import { ContextProps } from '../pages/MainPage'
 
 interface Props {
   expense: Expense | undefined

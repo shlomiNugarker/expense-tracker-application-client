@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import { HomePage } from './pages/HomePage'
+import { MainPage } from './pages/MainPage'
 import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
 import { ExpensesPage } from './pages/ExpensesPage'
@@ -30,7 +30,7 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<HomePage />}>
+          <Route path="/" element={<MainPage />}>
             <Route path="expenses" element={<ExpensesPage />} />
             <Route path="chart" element={<ChartPage />} />
           </Route>
