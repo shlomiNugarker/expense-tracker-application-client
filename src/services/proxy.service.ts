@@ -15,7 +15,7 @@ async function get(endpoint: string) {
   }
 }
 
-async function post<T>(endpoint: string, data: T) {
+async function post<T>(endpoint: string, data: T | null = null) {
   try {
     const res = await axios.post(BASE_URL + endpoint, data)
     return res.data
