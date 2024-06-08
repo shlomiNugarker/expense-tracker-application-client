@@ -1,18 +1,27 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { authService } from '../services/authService'
+import { User } from '../interfaces/User'
 
 export const SignupPage = () => {
   const [email, setEmail] = useState('')
+  const [fullName, setFullName] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const handleSignUp = (ev: React.FormEvent<HTMLFormElement>) => {
+  const handleSignUp = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault()
     if (password !== confirmPassword) {
       alert('Passwords do not match')
       return
     }
-    console.log('Email:', email)
-    console.log('Password:', password)
+    const loggedUser = await authService.signup({
+      email,
+      fullName,
+      password,
+    } as User)
+
+    console.log({ loggedUser })
   }
 
   return (
@@ -26,6 +35,16 @@ export const SignupPage = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             required
           />
         </div>
@@ -51,6 +70,9 @@ export const SignupPage = () => {
         </div>
         <button type="submit">Sign Up</button>
       </form>
+      <p>
+        already have account? <Link to={'/login'}>Sign in now</Link>
+      </p>
     </div>
   )
 }
