@@ -5,15 +5,16 @@ import { SignupPage } from './pages/SignupPage'
 import { ExpensesPage } from './pages/ExpensesPage'
 import { ChartPage } from './pages/ChartPage'
 import ProtectedRoute from './cmps/ProtectedRoute'
+import { AddPage } from './pages/AddPage'
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <nav style={{ position: 'fixed', background: 'white', bottom: '0' }}>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Main</Link>
             </li>
             <li>
               <Link to="/login">login</Link>
@@ -23,6 +24,9 @@ function App() {
             </li>
             <li>
               <Link to="expenses">expenses</Link>
+            </li>
+            <li>
+              <Link to="add">add</Link>
             </li>
             <li>
               <Link to="chart">chart</Link>
@@ -44,6 +48,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <ChartPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="add"
+              element={
+                <ProtectedRoute>
+                  <AddPage />
                 </ProtectedRoute>
               }
             />

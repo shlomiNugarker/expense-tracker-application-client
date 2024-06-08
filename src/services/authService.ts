@@ -6,13 +6,19 @@ export const authService = {
   logout,
   signup,
   getLoggedUser,
+  getAccessToken,
 }
 
 const STORAGE_KEY_LOGGED_USER = 'logged_user'
 
 async function login(userCred: { email: string; password: string }) {
-  const user = await proxyService.post('/api/auth/login', userCred)
-  if (user) return _saveLocalUser(user)
+  const data = await proxyService.post('/api/auth/login', userCred)
+
+  if (data.user)
+    if (data.accessToken) {
+      localStorage.setItem('accessToken', JSON.stringify(data.accessToken))
+      return _saveLocalUser(data.user)
+    }
 }
 
 async function signup(userCred: User) {
@@ -22,7 +28,7 @@ async function signup(userCred: User) {
 
 async function logout() {
   sessionStorage.removeItem(STORAGE_KEY_LOGGED_USER)
-  return await proxyService.post('/api/auth/logout')
+  return await proxyService.remove('/api/auth/logout')
 }
 
 function _saveLocalUser(user: User) {
@@ -32,4 +38,8 @@ function _saveLocalUser(user: User) {
 
 function getLoggedUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGED_USER) || 'null')
+}
+
+function getAccessToken() {
+  return localStorage.getItem('accessToken')
 }

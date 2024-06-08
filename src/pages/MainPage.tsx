@@ -1,22 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Expense } from '../interfaces/Expense'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { expenseService } from '../services/expense.servise'
 
-// const categoriesOpts = [
-//   'Food',
-//   'Social Life',
-//   'Pets',
-//   'Transport',
-//   'Culture',
-//   'Household',
-//   'Apparel',
-//   'Beauty',
-//   'Health',
-//   'Education',
-//   'Gift',
-//   'Other',
-// ]
+import style from '../assets/scss/pages/_main-page.module.scss'
 
 export interface ContextProps {
   expenses: Expense[]
@@ -58,9 +45,20 @@ export const MainPage = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Expense Tracker</h1>
-
+    <main>
+      <header className={style.header}>
+        <ul className="nav">
+          <li>
+            <Link to="chart">chart</Link>
+          </li>
+          <li>
+            <Link to="expenses">expenses</Link>
+          </li>
+          <li>
+            <Link to="add">add</Link>
+          </li>
+        </ul>
+      </header>
       <Outlet
         context={{
           expenses,
@@ -69,6 +67,6 @@ export const MainPage = () => {
           onUpdatetExpense,
         }}
       />
-    </div>
+    </main>
   )
 }

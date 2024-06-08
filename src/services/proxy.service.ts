@@ -7,7 +7,11 @@ const BASE_URL =
 
 async function get(endpoint: string) {
   try {
-    const res = await axios.get(BASE_URL + endpoint)
+    const res = await axios.get(BASE_URL + endpoint, {
+      headers: {
+        Authorization: `${getToken()}`,
+      },
+    })
     return res.data
   } catch (err) {
     console.error(err)
@@ -43,4 +47,10 @@ async function remove(endpoint: string) {
     console.error(err)
     throw err
   }
+}
+
+function getToken() {
+  const token = localStorage.getItem('accessToken')
+  if (token) return token
+  return ''
 }
