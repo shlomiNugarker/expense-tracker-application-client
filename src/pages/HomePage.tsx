@@ -30,42 +30,40 @@ export const HomePage = () => {
   const [expenses, setExpenses] = useState<Expense[]>([])
 
   const onDeleteExpense = async (_id: string) => {
-    console.log('onDeleteExpense: ', { _id })
-    await expenseService.remove(_id)
+    const data = await expenseService.remove(_id)
+    const updatedExpenses = expenses.filter(
+      (expense) => expense._id !== data._id
+    )
+    setExpenses(() => updatedExpenses)
   }
 
   const onAddExpense = async (expense: Expense) => {
-    console.log('onAddExpense: ', { expense })
-    return await expenseService.addExpense(expense)
-  }
-
-  const onGetExpenses = async () => {
-    console.log('onGetExpenses: ')
-    const expenses = await expenseService.getExpenses()
-    setExpenses(expenses)
-    return expenses
+    const addedExpense = await expenseService.save(expense)
+    setExpenses((prev) => [...prev, addedExpense])
+    return addedExpense
   }
 
   const onUpdatetExpense = async (expense: Expense) => {
-    console.log('onUpdatetExpense: ', { expense })
-    return await expenseService.updateExpense(expense)
+    const updatedExpense = await expenseService.save(expense)
+    setExpenses((prev) =>
+      prev.map((ex) => (ex._id === expense._id ? updatedExpense : ex))
+    )
   }
 
   useEffect(() => {
-    onGetExpenses()
     // eslint-disable-next-line no-extra-semi
-    // ;async () => {
-    //   const expenses = await expenseService.getExpenses()
-    //   setExpenses(expenses)
-    // }
+    ;(async () => {
+      const expenses = await expenseService.getExpenses()
+      setExpenses(expenses)
+    })()
   }, [])
 
   return (
     <div>
       <h1>Expense Tracker</h1>
 
-      <button
-        onClick={() => {
+      {/* <button
+        onClick={() => { 
           onAddExpense({
             title: 'title',
             category: 'category',
@@ -75,15 +73,14 @@ export const HomePage = () => {
           })
         }}
       >
-        setExpenses
-      </button>
+        onAddExpense
+      </button> */}
 
       <Outlet
         context={{
           expenses,
           onDeleteExpense,
           onAddExpense,
-          // onGetExpenses,
           onUpdatetExpense,
         }}
       />

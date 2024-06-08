@@ -8,21 +8,22 @@ interface Props {
 }
 
 const ExpenseForm = ({ expense }: Props) => {
-  const { onAddExpense } = useOutletContext<ContextProps>()
+  const { onAddExpense, onUpdatetExpense } = useOutletContext<ContextProps>()
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Expense>({
+    _id: expense?._id || undefined,
     title: expense?.title || '',
     category: expense?.category || '',
-    date: expense?.date
-      ? new Date(expense.date).toISOString().substring(0, 10)
-      : '',
-    amount: expense?.amount || '',
+    date: expense?.date || 0,
+    amount: expense?.amount || 0,
     notes: expense?.notes || [],
   })
 
   const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = ev.target
-    setFormData({ ...formData, [name]: value })
+    if (name === 'amount' && value) {
+      setFormData({ ...formData, [name]: +value })
+    } else setFormData({ ...formData, [name]: value })
   }
 
   const handleNotesChange = (index: number, value: string) => {
@@ -47,8 +48,9 @@ const ExpenseForm = ({ expense }: Props) => {
       date: new Date(formData.date).getTime(),
     } as Expense
 
-    onAddExpense(dataToSubmit)
-    console.log({})
+    dataToSubmit._id
+      ? onUpdatetExpense(dataToSubmit)
+      : onAddExpense(dataToSubmit)
   }
 
   return (
