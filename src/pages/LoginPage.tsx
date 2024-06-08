@@ -1,13 +1,14 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { authService } from '../services/authService'
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = (ev: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault()
-    console.log('Email:', email)
-    console.log('Password:', password)
+    await authService.login({ email, password })
   }
 
   return (
@@ -36,6 +37,9 @@ export const LoginPage = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+      <p>
+        dont have account? <Link to={'/signup'}>Sign up now</Link>
+      </p>
     </div>
   )
 }
