@@ -4,6 +4,7 @@ import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
 import { ExpensesPage } from './pages/ExpensesPage'
 import { ChartPage } from './pages/ChartPage'
+import ProtectedRoute from './cmps/ProtectedRoute'
 
 function App() {
   return (
@@ -28,11 +29,24 @@ function App() {
             </li>
           </ul>
         </nav>
-
         <Routes>
           <Route path="/" element={<MainPage />}>
-            <Route path="expenses" element={<ExpensesPage />} />
-            <Route path="chart" element={<ChartPage />} />
+            <Route
+              path="expenses"
+              element={
+                <ProtectedRoute>
+                  <ExpensesPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="chart"
+              element={
+                <ProtectedRoute>
+                  <ChartPage />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
