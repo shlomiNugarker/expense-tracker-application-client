@@ -8,10 +8,21 @@ export interface ContextProps {
   onDeleteExpense: (_id: string) => void
   onAddExpense: (expense: Expense) => void
   onUpdatetExpense: (expense: Expense) => void
+  filterBy: {
+    category: string
+    date: string
+  }
+  setFilterBy: React.Dispatch<
+    React.SetStateAction<{
+      category: string
+      date: string
+    }>
+  >
 }
 
 export const MainPage = () => {
   const [expenses, setExpenses] = useState<Expense[]>([])
+  const [filterBy, setFilterBy] = useState({ category: '', date: '' })
 
   const onDeleteExpense = async (_id: string) => {
     const data = await expenseService.remove(_id)
@@ -64,6 +75,8 @@ export const MainPage = () => {
           onDeleteExpense,
           onAddExpense,
           onUpdatetExpense,
+          filterBy,
+          setFilterBy,
         }}
       />
     </main>
