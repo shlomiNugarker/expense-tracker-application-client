@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router-dom'
 import { ContextProps } from '../pages/MainPage'
 
-const categoriesOpts = [
+export const categoriesOpts = [
   '',
   'Travel',
   'Salaries and Wages',

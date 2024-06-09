@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Expense } from '../interfaces/Expense'
 import { useOutletContext } from 'react-router-dom'
 import { ContextProps } from '../pages/MainPage'
+import { categoriesOpts } from './ExpenseFilter'
 
 interface Props {
   expense: Expense
@@ -60,14 +61,19 @@ const ExpenseForm = ({ expense }: Props) => {
       </div>
 
       <div className="form-group">
-        <label>Category</label>
-        <input
-          type="text"
-          name="category"
+        <label>Select a Category:</label>
+        <select
           value={formData.category}
-          onChange={handleChange}
-          required
-        />
+          onChange={(ev) => {
+            setFormData({ ...formData, category: ev.target.value })
+          }}
+        >
+          {categoriesOpts.map((c) => (
+            <option key={c} value={c}>
+              {c || 'Choose a Category'}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="form-group">
