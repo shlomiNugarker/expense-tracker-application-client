@@ -5,7 +5,7 @@ import { expenseService } from '../services/expense.servise'
 import { Expense } from '../interfaces/Expense'
 
 const newExpense: Expense = {
-  title: 'New Title',
+  title: '',
   category: '',
   date: new Date().toISOString().slice(0, 10),
   amount: 0,

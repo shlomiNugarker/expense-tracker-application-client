@@ -15,13 +15,11 @@ export const SignupPage = () => {
       alert('Passwords do not match')
       return
     }
-    const loggedUser = await authService.signup({
+    return await authService.signup({
       email,
       fullName,
       password,
     } as User)
-
-    console.log({ loggedUser })
   }
 
   return (

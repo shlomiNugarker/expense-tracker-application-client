@@ -28,6 +28,7 @@ async function signup(userCred: User) {
 
 async function logout() {
   sessionStorage.removeItem(STORAGE_KEY_LOGGED_USER)
+  localStorage.clear()
   return await proxyService.remove('/api/auth/logout')
 }
 
