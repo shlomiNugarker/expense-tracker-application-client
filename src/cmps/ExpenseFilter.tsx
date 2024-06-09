@@ -18,7 +18,7 @@ export const ExpenseFilter = () => {
   return (
     <section>
       <label>
-        Select Category:
+        Select a Category:
         <select
           value={filterBy.category}
           onChange={(ev) =>
@@ -32,6 +32,17 @@ export const ExpenseFilter = () => {
           ))}
         </select>
       </label>
+
+      <p>select a date:</p>
+      <input
+        type="date"
+        name="date"
+        value={filterBy.date}
+        onChange={(ev) => {
+          setFilterBy({ ...filterBy, date: ev.target.value })
+        }}
+        required
+      />
     </section>
   )
 }
