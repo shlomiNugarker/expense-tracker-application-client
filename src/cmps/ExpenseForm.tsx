@@ -3,6 +3,7 @@ import { Expense } from '../interfaces/Expense'
 import { useOutletContext } from 'react-router-dom'
 import { ContextProps } from '../pages/MainPage'
 import { categoriesOpts } from './ExpenseFilter'
+import { authService } from '../services/authService'
 
 interface Props {
   expense: Expense
@@ -40,6 +41,7 @@ const ExpenseForm = ({ expense }: Props) => {
     const dataToSubmit = {
       ...formData,
       createdAt: new Date(formData.date).getTime(),
+      userId: authService.getLoggedUser()._id,
     } as Expense
 
     dataToSubmit._id

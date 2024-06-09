@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Expense } from '../interfaces/Expense'
 import { Link, Outlet } from 'react-router-dom'
 import { expenseService } from '../services/expense.servise'
+import { authService } from '../services/authService'
 
 export interface ContextProps {
   expenses: Expense[]
@@ -48,7 +49,9 @@ export const MainPage = () => {
   useEffect(() => {
     // eslint-disable-next-line no-extra-semi
     ;(async () => {
-      const expenses = await expenseService.getExpenses()
+      const userId = authService.getLoggedUser()._id
+
+      const expenses = await expenseService.getExpenses(userId)
       setExpenses(expenses)
     })()
   }, [])

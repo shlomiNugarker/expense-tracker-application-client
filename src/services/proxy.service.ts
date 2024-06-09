@@ -9,7 +9,7 @@ async function get(endpoint: string) {
   try {
     const res = await axios.get(BASE_URL + endpoint, {
       headers: {
-        Authorization: `${getToken()}`,
+        Authorization: getToken(),
       },
     })
     return res.data
@@ -21,7 +21,11 @@ async function get(endpoint: string) {
 
 async function post<T>(endpoint: string, data: T | null = null) {
   try {
-    const res = await axios.post(BASE_URL + endpoint, data)
+    const res = await axios.post(BASE_URL + endpoint, data, {
+      headers: {
+        Authorization: getToken(),
+      },
+    })
     return res.data
   } catch (err) {
     console.error(err)
@@ -31,7 +35,11 @@ async function post<T>(endpoint: string, data: T | null = null) {
 
 async function put<T>(endpoint: string, data: T) {
   try {
-    const res = await axios.put(BASE_URL + endpoint, data)
+    const res = await axios.put(BASE_URL + endpoint, data, {
+      headers: {
+        Authorization: getToken(),
+      },
+    })
     return res.data
   } catch (err) {
     console.error(err)
@@ -41,7 +49,11 @@ async function put<T>(endpoint: string, data: T) {
 
 async function remove(endpoint: string) {
   try {
-    const res = await axios.delete(BASE_URL + endpoint)
+    const res = await axios.delete(BASE_URL + endpoint, {
+      headers: {
+        Authorization: `${getToken()}`,
+      },
+    })
     return res.data
   } catch (err) {
     console.error(err)
