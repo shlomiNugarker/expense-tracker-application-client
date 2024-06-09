@@ -3,8 +3,6 @@ import { Expense } from '../interfaces/Expense'
 import { Link, Outlet } from 'react-router-dom'
 import { expenseService } from '../services/expense.servise'
 
-import style from '../assets/scss/pages/_main-page.module.scss'
-
 export interface ContextProps {
   expenses: Expense[]
   onDeleteExpense: (_id: string) => void
@@ -45,9 +43,10 @@ export const MainPage = () => {
   }, [])
 
   return (
-    <main>
-      <header className={style.header}>
-        <ul className="nav">
+    <main className={'main-page'}>
+      <h1>Expense Tracker Application</h1>
+      <header>
+        <ul>
           <li>
             <Link to="chart">chart</Link>
           </li>
@@ -55,7 +54,7 @@ export const MainPage = () => {
             <Link to="expenses">expenses</Link>
           </li>
           <li>
-            <Link to="add">add</Link>
+            <Link to="edit">add</Link>
           </li>
         </ul>
       </header>

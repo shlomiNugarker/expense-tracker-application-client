@@ -11,7 +11,7 @@ export const expenseService = {
 async function getExpenses(): Promise<Expense[]> {
   return await proxyService.get('/api/expense')
 }
-async function getExpenseById(_id: string): Promise<Expense[]> {
+async function getExpenseById(_id: string): Promise<Expense> {
   return await proxyService.get('/api/expense/' + _id)
 }
 

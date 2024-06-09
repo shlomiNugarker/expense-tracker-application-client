@@ -4,20 +4,13 @@ import { useOutletContext } from 'react-router-dom'
 import { ContextProps } from '../pages/MainPage'
 
 interface Props {
-  expense: Expense | undefined
+  expense: Expense
 }
 
 const ExpenseForm = ({ expense }: Props) => {
   const { onAddExpense, onUpdatetExpense } = useOutletContext<ContextProps>()
 
-  const [formData, setFormData] = useState<Expense>({
-    _id: expense?._id || undefined,
-    title: expense?.title || '',
-    category: expense?.category || '',
-    date: expense?.date || 0,
-    amount: expense?.amount || 0,
-    notes: expense?.notes || [],
-  })
+  const [formData, setFormData] = useState<Expense>(expense)
 
   const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = ev.target
@@ -45,7 +38,7 @@ const ExpenseForm = ({ expense }: Props) => {
     ev.preventDefault()
     const dataToSubmit = {
       ...formData,
-      date: new Date(formData.date).getTime(),
+      createdAt: new Date(formData.date).getTime(),
     } as Expense
 
     dataToSubmit._id
@@ -108,17 +101,23 @@ const ExpenseForm = ({ expense }: Props) => {
               value={note}
               onChange={(e) => handleNotesChange(index, e.target.value)}
             />
-            <button type="button" onClick={() => removeNote(index)}>
+            <button
+              className="remove-btn"
+              type="button"
+              onClick={() => removeNote(index)}
+            >
               Remove
             </button>
           </div>
         ))}
-        <button type="button" onClick={addNote}>
+        <button className="add-note-btn" type="button" onClick={addNote}>
           Add Note
         </button>
       </div>
 
-      <button type="submit">Submit</button>
+      <button className="submit-btn" type="submit">
+        Submit
+      </button>
     </form>
   )
 }

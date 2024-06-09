@@ -5,13 +5,13 @@ import { SignupPage } from './pages/SignupPage'
 import { ExpensesPage } from './pages/ExpensesPage'
 import { ChartPage } from './pages/ChartPage'
 import ProtectedRoute from './cmps/ProtectedRoute'
-import { AddPage } from './pages/AddPage'
+import { EditPage } from './pages/EditPage'
 
 function App() {
   return (
     <Router>
       <div>
-        <nav style={{ position: 'fixed', background: 'white', bottom: '0' }}>
+        <nav style={{ position: 'fixed', background: 'black', bottom: '0' }}>
           <ul>
             <li>
               <Link to="/">Main</Link>
@@ -26,7 +26,7 @@ function App() {
               <Link to="expenses">expenses</Link>
             </li>
             <li>
-              <Link to="add">add</Link>
+              <Link to="edit">add</Link>
             </li>
             <li>
               <Link to="chart">chart</Link>
@@ -52,10 +52,10 @@ function App() {
               }
             />
             <Route
-              path="add"
+              path="edit/:expenseId?"
               element={
                 <ProtectedRoute>
-                  <AddPage />
+                  <EditPage />
                 </ProtectedRoute>
               }
             />

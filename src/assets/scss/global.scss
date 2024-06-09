@@ -1,6 +1,9 @@
-// Basics
 @import 'basics/base';
 
-// Pages
+@import 'pages/main-page.scss';
+@import 'pages/expense-page';
+@import 'pages/edit-page';
 
-// Components
+@import 'cmps/expense-list';
+@import 'cmps/expense-preview';
+@import 'cmps/_expense-form';

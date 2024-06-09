@@ -1,0 +1,31 @@
+.main-page {
+  h1 {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  header {
+    background-color: rgb(136, 58, 22);
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      li {
+        margin: 0 15px;
+        list-style: none;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 20px;
+
+        a {
+          padding: 20px;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
