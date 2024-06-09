@@ -16,7 +16,7 @@ async function login(userCred: { email: string; password: string }) {
 
   if (data.user)
     if (data.accessToken) {
-      localStorage.setItem('accessToken', JSON.stringify(data.accessToken))
+      localStorage.setItem('accessToken', data.accessToken)
       return _saveLocalUser(data.user)
     }
 }
