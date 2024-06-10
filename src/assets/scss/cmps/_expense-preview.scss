@@ -1,6 +1,7 @@
 .expense-preview {
   color: #8d96a0;
-  a {
+  .container {
+    flex-wrap: wrap;
     border: 1px solid;
     border-radius: 15px;
     margin: 5px;
@@ -11,6 +12,7 @@
     .expense-preview-details {
       margin: 0 5px;
       display: flex;
+      flex-wrap: wrap;
 
       p:nth-child(n + 2) {
         margin-left: 15px;
@@ -19,22 +21,14 @@
 
     .amount-remove {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       .expense-preview-amount {
+        color: #aa0303;
       }
-      button {
-        border: none;
-        border-radius: 5px;
-        &:hover {
-          background-color: #7788998e;
-          color: white;
-        }
-
-        margin: 0 0 0 15px;
-
-        padding: 5px;
-        border-radius: 5px;
-        border: none;
+      svg {
+        cursor: pointer;
+        margin-left: 15px;
       }
     }
   }

@@ -23,12 +23,15 @@ export const SignupPage = () => {
   }
 
   return (
-    <div className="signup-container">
+    <div className="signup-page">
       <h2>Sign Up</h2>
+
       <form onSubmit={handleSignUp}>
         <div className="input-group">
           <label htmlFor="email">Email</label>
+          <br />
           <input
+            className="email-input"
             type="email"
             id="email"
             value={email}
@@ -36,8 +39,10 @@ export const SignupPage = () => {
             required
           />
         </div>
+
         <div className="input-group">
           <label htmlFor="fullName">Full Name</label>
+          <br />
           <input
             type="text"
             id="fullName"
@@ -48,6 +53,7 @@ export const SignupPage = () => {
         </div>
         <div className="input-group">
           <label htmlFor="password">Password</label>
+          <br />
           <input
             type="password"
             id="password"
@@ -58,6 +64,7 @@ export const SignupPage = () => {
         </div>
         <div className="input-group">
           <label htmlFor="confirmPassword">Confirm Password</label>
+          <br />
           <input
             type="password"
             id="confirmPassword"
@@ -66,10 +73,12 @@ export const SignupPage = () => {
             required
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button className="submit-btn" type="submit">
+          Sign Up
+        </button>
       </form>
       <p>
-        already have account? <Link to={'/login'}>Sign in now</Link>
+        already have an account? <Link to={'/login'}>Sign in now</Link>
       </p>
     </div>
   )

@@ -1,0 +1,41 @@
+.signup-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  form {
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .input-group {
+      width: 100%;
+      label {
+      }
+      input,
+      .email-input {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: #8d96a0;
+
+        border-radius: 5px;
+        padding: 5px;
+        border: none;
+      }
+    }
+
+    .submit-btn {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+}

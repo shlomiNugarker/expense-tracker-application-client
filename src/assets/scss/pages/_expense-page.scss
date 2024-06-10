@@ -1,2 +1,15 @@
 .expense-page {
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    button {
+      background-color: #010409;
+      color: #4493f8;
+      padding: 20px;
+      border: none;
+      border-radius: 20px;
+    }
+  }
 }

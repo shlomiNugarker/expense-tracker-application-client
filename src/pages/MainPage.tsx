@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { Expense } from '../interfaces/Expense'
 import { Link, Outlet } from 'react-router-dom'
 import { expenseService } from '../services/expense.servise'
+import { FaChartBar } from 'react-icons/fa'
+import { GiExpense } from 'react-icons/gi'
+import { IoMdAdd } from 'react-icons/io'
 
 export interface ContextProps {
   expenses: Expense[]
@@ -59,12 +62,15 @@ export const MainPage = () => {
       <header>
         <ul>
           <li>
+            <FaChartBar />
             <Link to="chart">chart</Link>
           </li>
           <li>
+            <GiExpense />
             <Link to="expenses">expenses</Link>
           </li>
           <li>
+            <IoMdAdd />
             <Link to="edit">add</Link>
           </li>
         </ul>
