@@ -8,8 +8,8 @@ export const expenseService = {
   save,
 }
 
-async function getExpenses(userId: string): Promise<Expense[]> {
-  return await proxyService.get('/api/expense/expenses/' + userId)
+async function getExpenses(): Promise<Expense[]> {
+  return await proxyService.get('/api/expense/')
 }
 async function getExpenseById(_id: string): Promise<Expense> {
   return await proxyService.get('/api/expense/' + _id)
