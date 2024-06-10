@@ -8,9 +8,9 @@ import { IoMdAdd } from 'react-icons/io'
 
 export interface ContextProps {
   expenses: Expense[]
-  onDeleteExpense: (_id: string) => void
-  onAddExpense: (expense: Expense) => void
-  onUpdatetExpense: (expense: Expense) => void
+  onDeleteExpense: (_id: string) => Promise<void>
+  onAddExpense: (expense: Expense) => Promise<Expense>
+  onUpdatetExpense: (expense: Expense) => Promise<void>
   filterBy: {
     category: string
     date: string

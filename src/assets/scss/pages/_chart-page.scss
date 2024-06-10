@@ -6,3 +6,12 @@
   canvas {
   }
 }
+
+@media (max-width: 420px) {
+  .chart-page {
+    justify-content: normal;
+    canvas {
+      width: 90%;
+    }
+  }
+}

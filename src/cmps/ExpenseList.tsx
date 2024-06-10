@@ -6,15 +6,21 @@ export const ExpenseList = () => {
   const { expenses, filterBy } = useOutletContext<ContextProps>()
 
   function getFilteredExpenses() {
-    return expenses.filter((ex) => {
-      const matchesCategory = filterBy.category
-        ? filterBy.category === ex.category
-        : true
+    return expenses
+      .filter((ex) => {
+        const matchesCategory = filterBy.category
+          ? filterBy.category === ex.category
+          : true
 
-      const matchesDate = filterBy.date ? filterBy.date === ex.date : true
-
-      return matchesCategory && matchesDate
-    })
+        const matchesDate = filterBy.date ? filterBy.date === ex.date : true
+        return matchesCategory && matchesDate
+      })
+      .sort((a, b) => {
+        if (a.createdAt && b.createdAt) {
+          return a.createdAt - b.createdAt ? 1 : -1
+        }
+        return -1
+      })
   }
   return (
     <ul className="expense-list">

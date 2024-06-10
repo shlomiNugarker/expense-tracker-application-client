@@ -33,3 +33,30 @@
     }
   }
 }
+
+@media (max-width: 420px) {
+  .expense-preview {
+    .container {
+      flex-wrap: nowrap;
+      .expense-preview-details {
+        // flex-wrap: nowrap;
+        p:nth-child(n + 2) {
+          margin-left: 0px;
+        }
+
+        p:nth-child(2) {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+      }
+
+      .amount-remove {
+        flex-wrap: nowrap;
+        .expense-preview-amount {
+        }
+        svg {
+        }
+      }
+    }
+  }
+}

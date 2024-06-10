@@ -1,11 +1,13 @@
 .main-page {
+  border-radius: 15px;
+  padding: 10px;
   h1 {
     text-align: center;
     margin: 10px 0;
   }
 
   header {
-    background-color: #01040967;
+    // background-color: #01040967;
     border-radius: 30px;
     // background: radial-gradient(to bottom, #1a1c1f, #0d1117);
 
@@ -30,6 +32,24 @@
         a {
           padding: 5px;
           font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .main-page {
+    h1 {
+    }
+
+    header {
+      ul {
+        flex-direction: column;
+        li {
+          padding: 2px;
+          a {
+          }
         }
       }
     }

@@ -15,7 +15,7 @@ export const ChartPage = () => {
       chartInstance.current.destroy()
     }
 
-    const categories: any = {}
+    const categories: { [key: string]: any } = {}
     data.forEach((item) => {
       categories[item.category] = (categories[item.category] || 0) + item.amount
     })

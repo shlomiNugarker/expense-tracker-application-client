@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Expense } from '../interfaces/Expense'
-import { useOutletContext } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { ContextProps } from '../pages/MainPage'
 import { categoriesOpts } from './ExpenseFilter'
 import { authService } from '../services/authService'
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const ExpenseForm = ({ expense }: Props) => {
+  const navigate = useNavigate()
   const { onAddExpense, onUpdatetExpense } = useOutletContext<ContextProps>()
 
   const [formData, setFormData] = useState<Expense>(expense)
@@ -45,8 +46,10 @@ const ExpenseForm = ({ expense }: Props) => {
     } as Expense
 
     dataToSubmit._id
-      ? onUpdatetExpense(dataToSubmit)
-      : onAddExpense(dataToSubmit)
+      ? await onUpdatetExpense(dataToSubmit)
+      : await onAddExpense(dataToSubmit)
+
+    navigate('/expenses')
   }
 
   return (
@@ -118,6 +121,7 @@ const ExpenseForm = ({ expense }: Props) => {
             </button>
           </div>
         ))}
+
         <button className="add-note-btn" type="button" onClick={addNote}>
           Add Note
         </button>
