@@ -1,6 +1,6 @@
 .expense-list {
   display: flex;
   padding: 0;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
 }

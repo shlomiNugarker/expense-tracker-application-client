@@ -16,7 +16,7 @@ export const ExpenseFilter = () => {
   const { filterBy, setFilterBy } = useOutletContext<ContextProps>()
 
   return (
-    <section>
+    <section className="expense-filter">
       <label>
         Select a Category:
         <select

@@ -1,33 +1,41 @@
 .expense-preview {
-  border: 1px solid;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 10px;
-  .expense-preview-details {
-    margin: 0 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2 {
-    }
-    p {
-    }
-  }
-
-  button {
-    border: none;
+  color: #8d96a0;
+  a {
+    border: 1px solid;
+    border-radius: 15px;
     margin: 5px;
-    border-radius: 5px;
-    &:hover {
-      background-color: #7788998e;
-      color: white;
-    }
-    a {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .expense-preview-details {
+      margin: 0 5px;
+      display: flex;
+
+      p:nth-child(n + 2) {
+        margin-left: 15px;
+      }
     }
 
-    margin-top: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
+    .amount-remove {
+      display: flex;
+      align-items: center;
+      .expense-preview-amount {
+      }
+      button {
+        border: none;
+        border-radius: 5px;
+        &:hover {
+          background-color: #7788998e;
+          color: white;
+        }
+
+        margin: 0 0 0 15px;
+
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+      }
+    }
   }
 }

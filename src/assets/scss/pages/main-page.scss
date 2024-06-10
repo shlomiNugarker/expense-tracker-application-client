@@ -5,7 +5,8 @@
   }
 
   header {
-    background-color: rgb(136, 58, 22);
+    background-color: #010409;
+    color: #4493f8;
     ul {
       margin: 0;
       padding: 0;
@@ -16,8 +17,8 @@
       li {
         margin: 0 15px;
         list-style: none;
-        border: 1px solid black;
-        border-radius: 5px;
+
+        border-radius: 25px;
         cursor: pointer;
         padding: 20px;
 

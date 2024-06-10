@@ -1,0 +1,30 @@
+.expense-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+
+  label {
+    select {
+      margin-left: 10px;
+      border-radius: 5px;
+      padding: 5px;
+      border: none;
+      margin-top: 5px;
+      option {
+      }
+    }
+  }
+
+  p {
+    margin-left: 10px;
+  }
+
+  input {
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    margin-top: 5px;
+  }
+}
