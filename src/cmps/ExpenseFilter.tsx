@@ -17,6 +17,8 @@ export const ExpenseFilter = () => {
 
   return (
     <section className="expense-filter">
+      <h4>Filter By: </h4> <br />
+      <br />
       <label>
         Select a Category:
         <select
@@ -32,7 +34,6 @@ export const ExpenseFilter = () => {
           ))}
         </select>
       </label>
-
       <p>select a date:</p>
       <input
         type="date"

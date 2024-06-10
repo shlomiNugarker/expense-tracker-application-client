@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { authService } from '../services/authService'
 
 export const LoginPage = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('shlomin1231@gmail.com')
+  const [password, setPassword] = useState('x')
   const navigate = useNavigate()
 
   const handleLogin = async (ev: React.FormEvent<HTMLFormElement>) => {

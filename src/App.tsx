@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { MainPage } from './pages/MainPage'
 import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
@@ -11,28 +11,6 @@ function App() {
   return (
     <Router>
       <div>
-        <nav style={{ position: 'fixed', background: 'black', bottom: '0' }}>
-          <ul>
-            <li>
-              <Link to="/">Main</Link>
-            </li>
-            <li>
-              <Link to="/login">login</Link>
-            </li>
-            <li>
-              <Link to="/signup">signup</Link>
-            </li>
-            <li>
-              <Link to="expenses">expenses</Link>
-            </li>
-            <li>
-              <Link to="edit">add</Link>
-            </li>
-            <li>
-              <Link to="chart">chart</Link>
-            </li>
-          </ul>
-        </nav>
         <Routes>
           <Route path="/" element={<MainPage />}>
             <Route
