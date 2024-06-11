@@ -1,5 +1,6 @@
 import { User } from '../interfaces/User'
 import { proxyService } from './proxy.service'
+import { socketService } from './socketService'
 
 export const authService = {
   login,
@@ -17,6 +18,9 @@ async function login(userCred: { email: string; password: string }) {
   if (data.user)
     if (data.accessToken) {
       localStorage.setItem('accessToken', data.accessToken)
+
+      socketService.emit('login', data.user._id)
+
       return _saveLocalUser(data.user)
     }
 }
