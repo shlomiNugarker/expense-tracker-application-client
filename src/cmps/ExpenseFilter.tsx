@@ -44,6 +44,27 @@ export const ExpenseFilter = () => {
         }}
         required
       />
+      <br />
+      <label>
+        Start Date:
+        <input
+          type="date"
+          value={filterBy.startDate}
+          onChange={(e) =>
+            setFilterBy((prev) => ({ ...prev, startDate: e.target.value }))
+          }
+        />
+      </label>
+      <label>
+        End Date:
+        <input
+          type="date"
+          value={filterBy.endDate}
+          onChange={(e) =>
+            setFilterBy((prev) => ({ ...prev, endDate: e.target.value }))
+          }
+        />
+      </label>
     </section>
   )
 }

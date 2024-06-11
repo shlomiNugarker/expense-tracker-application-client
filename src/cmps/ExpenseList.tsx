@@ -13,7 +13,12 @@ export const ExpenseList = () => {
           : true
 
         const matchesDate = filterBy.date ? filterBy.date === ex.date : true
-        return matchesCategory && matchesDate
+
+        const matchesDateRange =
+          (!filterBy.startDate || ex.date >= filterBy.startDate) &&
+          (!filterBy.endDate || ex.date <= filterBy.endDate)
+
+        return matchesCategory && matchesDate && matchesDateRange
       })
       .sort((a, b) => {
         if (a.createdAt && b.createdAt) {

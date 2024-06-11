@@ -14,6 +14,8 @@ export interface ContextProps {
   filterBy: {
     category: string
     date: string
+    startDate: string
+    endDate: string
   }
   setFilterBy: React.Dispatch<
     React.SetStateAction<{
@@ -25,7 +27,12 @@ export interface ContextProps {
 
 export const MainPage = () => {
   const [expenses, setExpenses] = useState<Expense[]>([])
-  const [filterBy, setFilterBy] = useState({ category: '', date: '' })
+  const [filterBy, setFilterBy] = useState({
+    category: '',
+    date: '',
+    startDate: '',
+    endDate: '',
+  })
 
   const onDeleteExpense = async (_id: string) => {
     const data = await expenseService.remove(_id)
