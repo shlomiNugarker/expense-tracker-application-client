@@ -22,7 +22,7 @@ export const EditPage = () => {
       if (expenseId) {
         const expense = await expenseService.getExpenseById(expenseId)
         if (expense) setExpense(expense)
-      } else setExpense(newExpense)
+      } else setExpense({ ...newExpense })
     })()
   }, [expenseId])
 

@@ -22,6 +22,7 @@ export const ExpenseList = () => {
         return -1
       })
   }
+
   return (
     <ul className="expense-list">
       {getFilteredExpenses().map((expense) => (

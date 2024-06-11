@@ -75,6 +75,7 @@ export const MainPage = () => {
           </li>
         </ul>
       </header>
+
       <Outlet
         context={{
           expenses,

@@ -22,7 +22,7 @@ export const ExpensePreview = ({ expense }: Props) => {
           <p>{expense.title}</p>
           <p>{expense.notes}</p>
           {expense.notes.map((note, idx) => {
-            return <p key={note + idx}>{note},</p>
+            return <p key={note + idx}>{note}</p>
           })}
           <p className="expense-preview-date">{formattedDate}</p>
         </div>

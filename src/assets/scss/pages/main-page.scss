@@ -1,6 +1,13 @@
 .main-page {
   border-radius: 15px;
   padding: 10px;
+
+  .loading {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   h1 {
     text-align: center;
     margin: 10px 0;
